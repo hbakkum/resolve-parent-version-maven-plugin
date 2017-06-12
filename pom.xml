@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.hbakkum</groupId>
+  <groupId>com.hbakkum.maven.plugins</groupId>
   <artifactId>resolve-parent-version-maven-plugin</artifactId>
   <packaging>maven-plugin</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.1</version>
 
   <name>resolve-parent-version-maven-plugin</name>
   <description>Maven plugin which resolves any property placeholders in the version field of a parent pom reference</description>
