@@ -1,4 +1,4 @@
-package com.hbakkum;
+package com.hbakkum.maven.plugins;
 
 /*
  * Copyright 2001-2005 The Apache Software Foundation.
@@ -43,8 +43,43 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 /**
- * This mojo updates the pom file for a module with the resolved parent version. That is, it ensures that for any poms that have a parent module reference, that
- * when this pom gets installed/deployed it does not include any property placeholders in the parent module version field.
+ * This plugin updates a pom file with the resolved parent version. That is, it ensures that for a pom
+ * that has a parent pom reference, that when it gets installed/deployed, any property placeholders in the parent
+ * pom version field will be resolved.
+ *
+ * e.g.
+ *
+ * Say we have the following pom:
+ *
+ * <project>
+ *   <parent>
+ *     <groupId>com.mycompany.app</groupId>
+ *     <artifactId>my-app</artifactId>
+ *     <version>1.${some.property}</version>
+ *  </parent>
+ *
+ *  <artifactId>my-module</artifactId>
+ *
+ *  ...
+ *
+ * </project>
+ *
+ *
+ * If a build runs where some.property=999, then the installed/deployed pom will be:
+ *
+ * <project>
+ *   <parent>
+ *     <groupId>com.mycompany.app</groupId>
+ *     <artifactId>my-app</artifactId>
+ *     <version>1.999</version>
+ *  </parent>
+ *
+ *  <artifactId>my-module</artifactId>
+ *
+ *  ...
+ *
+ * </project>
+ *
  *
  **/
 @Mojo(name = "resolve-parent-version", defaultPhase = LifecyclePhase.GENERATE_RESOURCES, requiresProject = true, requiresDirectInvocation = false, executionStrategy = "once-per-session")
