@@ -4,7 +4,7 @@
   <groupId>com.hbakkum.maven.plugins</groupId>
   <artifactId>resolve-parent-version-maven-plugin</artifactId>
   <packaging>maven-plugin</packaging>
-  <version>0.4</version>
+  <version>0.5-SNAPSHOT</version>
 
   <name>resolve-parent-version-maven-plugin</name>
   <description>Maven plugin which resolves any property placeholders in the version field of a parent pom reference</description>
@@ -29,7 +29,7 @@
     <connection>scm:git:git://github.com/hbakkum/resolve-parent-version-maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:hbakkum/resolve-parent-version-maven-plugin.git</developerConnection>
     <url>https://github.com/hbakkum/resolve-parent-version-maven-plugin</url>
-    <tag>v0.4</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <distributionManagement>
