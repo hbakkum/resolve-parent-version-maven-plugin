@@ -51,34 +51,34 @@ import java.nio.file.Path;
  *
  * Say we have the following pom:
  *
- * <project>
- *   <parent>
- *     <groupId>com.mycompany.app</groupId>
- *     <artifactId>my-app</artifactId>
- *     <version>1.${some.property}</version>
- *  </parent>
+ * &lt;project&gt;
+ *   &lt;parent&gt;
+ *     &lt;groupId&gt;com.mycompany.app&lt;/groupId&gt;
+ *     &lt;artifactId&gt;my-app&lt;/artifactId&gt;
+ *     &lt;version&gt;1.${some.property}&lt;/version&gt;
+ *  &lt;/parent&gt;
  *
- *  <artifactId>my-module</artifactId>
+ *  &lt;artifactId&gt;my-module&lt;/artifactId&gt;
  *
  *  ...
  *
- * </project>
+ * &lt;/project&gt;
  *
  *
  * If a build runs where some.property=999, then the installed/deployed pom will be:
  *
- * <project>
- *   <parent>
- *     <groupId>com.mycompany.app</groupId>
- *     <artifactId>my-app</artifactId>
- *     <version>1.999</version>
- *  </parent>
+ * &lt;project&gt;
+ *   &lt;parent&gt;
+ *     &lt;groupId&gt;com.mycompany.app&lt;/groupId&gt;
+ *     &lt;artifactId&gt;my-app&lt;/artifactId&gt;
+ *     &lt;version&gt;1.999&lt;/version&gt;
+ *  &lt;/parent&gt;
  *
- *  <artifactId>my-module</artifactId>
+ *  &lt;artifactId&gt;my-module&lt;/artifactId&gt;
  *
  *  ...
  *
- * </project>
+ * &lt;/project&gt;
  *
  *
  **/
