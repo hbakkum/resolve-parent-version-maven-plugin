@@ -173,11 +173,13 @@ public class ResolveParentVersionMojo extends AbstractMojo {
             }
         }
 
-        try {
-            outputFile = Files.createFile(outputFile);
+        if (!Files.exists(outputFile)) {
+            try {
+                outputFile = Files.createFile(outputFile);
 
-        } catch (IOException e) {
-            throw new MojoExecutionException("Failed to create output file", e);
+            } catch (IOException e) {
+                throw new MojoExecutionException("Failed to create output file", e);
+            }
         }
 
         Result output = new StreamResult(outputFile.toFile());
