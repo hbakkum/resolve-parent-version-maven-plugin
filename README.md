@@ -38,3 +38,19 @@ Say we have the following pom:
  
 </project>
 ```
+## Usage
+
+```xml
+ <plugin>
+  <groupId>com.hbakkum.maven.plugins</groupId>
+  <artifactId>resolve-parent-version-maven-plugin</artifactId>
+  <version>0.6</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>resolve-parent-version</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+```
