@@ -4,6 +4,8 @@ This plugin updates a pom file with the resolved parent version. That is, it ens
 that has a parent pom reference, that when it gets installed/deployed, any property placeholders in the parent
 pom version field will be resolved.
 
+See this blog post for more details: https://hbakkum.github.io/2017/maven-versioning-in-a-continuous-delivery-pipeline/
+
 e.g.
 Say we have the following pom:
 
