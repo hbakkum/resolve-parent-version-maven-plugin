@@ -95,20 +95,21 @@ public class ResolveParentVersionMojo extends AbstractMojo {
     private MavenProject project;
 
     public void execute() throws MojoExecutionException {
-        MavenProject parentProject = project.getParent();
-        if (parentProject == null) {
-            getLog().warn("No parent project found - nothing to do");
-            return;
-        }
-
         Document doc = parsePomFile();
 
-        Element parentVersionElement = getParentVersionElement(doc);
-        if (parentVersionElement == null) {
-            getLog().warn("Failed to find parent version element, doing nothing");
-            return;
+        Element versionElement = getVersionElement(doc);
+        if (versionElement != null) {
+            versionElement.setTextContent(project.getVersion());
         }
-        parentVersionElement.setTextContent(parentProject.getVersion());
+
+        MavenProject parentProject = project.getParent();
+        if (parentProject != null) {
+            Element parentVersionElement = getParentVersionElement(doc);
+
+            if (parentVersionElement != null) {
+                parentVersionElement.setTextContent(parentProject.getVersion());
+            }
+        }
 
         Path outputFile = outputDirectory.toPath().resolve(outputPomFilename);
         writeResolvedParentVersionPom(doc, outputFile);
@@ -136,6 +137,22 @@ public class ResolveParentVersionMojo extends AbstractMojo {
 
         } catch (IOException e) {
             throw new MojoExecutionException("Failed to parse pom file", e);
+        }
+    }
+
+    private Element getVersionElement(Document doc) throws MojoExecutionException {
+        XPath xPath = XPathFactory.newInstance().newXPath();
+
+        try {
+            NodeList nodes = ((NodeList) xPath.evaluate("/project/version", doc.getDocumentElement(), XPathConstants.NODESET));
+            if (nodes.getLength() == 0) {
+                return null;
+            }
+
+            return (Element) nodes.item(0);
+
+        } catch (XPathExpressionException e) {
+            throw new MojoExecutionException("Failed to evaluate xpath expression", e);
         }
     }
 
