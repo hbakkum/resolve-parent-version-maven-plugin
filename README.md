@@ -46,7 +46,7 @@ Say we have the following pom:
  <plugin>
   <groupId>com.hbakkum.maven.plugins</groupId>
   <artifactId>resolve-parent-version-maven-plugin</artifactId>
-  <version>0.6</version>
+  <version>0.7</version>
   <executions>
     <execution>
       <goals>
