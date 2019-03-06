@@ -82,7 +82,7 @@ import java.nio.file.Path;
  *
  *
  **/
-@Mojo(name = "resolve-parent-version", defaultPhase = LifecyclePhase.GENERATE_RESOURCES, requiresProject = true, requiresDirectInvocation = false, executionStrategy = "once-per-session")
+@Mojo(name = "resolve-parent-version", defaultPhase = LifecyclePhase.GENERATE_RESOURCES, requiresProject = true, requiresDirectInvocation = false, executionStrategy = "once-per-session", threadSafe = true)
 public class ResolveParentVersionMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "${project.build.directory}", readonly = true, required = true)
